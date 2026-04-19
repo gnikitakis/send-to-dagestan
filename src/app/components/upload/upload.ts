@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-upload',
   imports: [],
   templateUrl: './upload.html',
-  styleUrl: './upload.scss',
 })
 export class Upload {
 
