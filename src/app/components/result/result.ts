@@ -25,6 +25,11 @@ const BADGE_STYLE: Record<ToughnessBadge, { label: string; ring: string; text: s
     ring: 'ring-blood',
     text: 'text-blood',
   },
+  'LIFETIME RESIDENT': {
+    label: 'Lifetime Resident',
+    ring: 'ring-purple-500',
+    text: 'text-purple-400',
+  },
 };
 
 @Component({
@@ -47,6 +52,8 @@ export class Result implements OnInit {
     return badge ? BADGE_STYLE[badge] : null;
   });
 
+  readonly isForever = computed(() => !isFinite(this.result()?.years ?? 0));
+
   ngOnInit(): void {
     if (!this.result() || !this.analysis()) {
       this.router.navigate(['/upload']);
@@ -57,7 +64,16 @@ export class Result implements OnInit {
   }
 
   formatYears(years: number): string {
+    if (!isFinite(years)) return '∞';
     return years < 1 ? years.toFixed(1) : String(Math.round(years));
+  }
+
+  yearsLabel(): string {
+    const years = this.result()?.years;
+    if (years === undefined) return 'Years';
+    if (!isFinite(years)) return 'Forever';
+    if (years === 1 || years === 0.5) return 'Year';
+    return 'Years';
   }
 
   restart(): void {
@@ -70,6 +86,10 @@ export class Result implements OnInit {
 
   private animateYears(): void {
     const target = this.result()?.years ?? 0;
+    if (!isFinite(target)) {
+      this.displayYears.set(Infinity);
+      return;
+    }
     const durationMs = 1200;
     const start = performance.now();
     const tick = (now: number) => {

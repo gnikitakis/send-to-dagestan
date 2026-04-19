@@ -4,12 +4,14 @@
       <p class="text-xs tracking-[0.3em] uppercase text-gold">The verdict</p>
 
       <div class="flex flex-col items-center gap-2">
-        <p class="text-sm uppercase tracking-widest opacity-60">You need</p>
+        <p class="text-sm uppercase tracking-widest opacity-60">
+          {{ isForever() ? 'Your sentence' : 'You need' }}
+        </p>
         <p class="font-display text-8xl sm:text-9xl leading-none text-blood">
-          {{ formatYears(displayYears()) }}
+          {{ isForever() ? '∞' : formatYears(displayYears()) }}
         </p>
         <p class="text-sm uppercase tracking-widest opacity-80">
-          {{ r.years === 1 || r.years === 0.5 ? 'Year' : 'Years' }} in Dagestan
+          {{ yearsLabel() }} in Dagestan
         </p>
       </div>
 

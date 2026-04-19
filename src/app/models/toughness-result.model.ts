@@ -2,7 +2,8 @@ export type ToughnessBadge =
   | 'MOUNTAIN LEGEND'
   | 'FUTURE WARRIOR'
   | 'NEEDS WORK'
-  | 'SERIOUS EMERGENCY';
+  | 'SERIOUS EMERGENCY'
+  | 'LIFETIME RESIDENT';
 
 export interface ToughnessResult {
   years: number;
