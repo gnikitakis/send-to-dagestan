@@ -1,1 +1,19 @@
 @import "tailwindcss";
+
+@theme {
+  --color-ink: #0d0d0d;
+  --color-ink-soft: #161616;
+  --color-blood: #c0392b;
+  --color-gold: #d4a017;
+
+  --font-display: "Bebas Neue", "Impact", sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+html,
+body {
+  background: var(--color-ink);
+  color: #f4f4f4;
+  font-family: var(--font-sans);
+  min-height: 100%;
+}

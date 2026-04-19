@@ -1,1 +1,30 @@
-<router-outlet />
+<div class="min-h-screen flex flex-col">
+  <header
+    class="border-b border-white/10 bg-ink-soft/60 backdrop-blur-sm sticky top-0 z-10"
+  >
+    <div class="max-w-5xl mx-auto flex items-center justify-between px-6 py-4">
+      <a
+        routerLink="/"
+        class="font-display text-2xl sm:text-3xl tracking-[0.15em] leading-none"
+      >
+        SEND TO <span class="text-blood">DAGESTAN</span>
+      </a>
+      <span class="hidden sm:inline text-xs tracking-widest uppercase opacity-60">
+        Toughness Calculator
+      </span>
+    </div>
+  </header>
+
+  <main class="flex-1 w-full max-w-5xl mx-auto px-6 py-10 sm:py-14">
+    <router-outlet />
+  </main>
+
+  <footer class="border-t border-white/10">
+    <div
+      class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between text-xs opacity-60"
+    >
+      <span>© Send to Dagestan</span>
+      <span class="tracking-widest uppercase">Train like the mountain</span>
+    </div>
+  </footer>
+</div>
