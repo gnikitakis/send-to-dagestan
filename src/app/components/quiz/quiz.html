@@ -20,10 +20,11 @@
             <button
               type="button"
               (click)="select(question.id, option.score)"
-              [class.border-blood]="isSelected(question.id, option.score)"
-              [class.bg-blood]="isSelected(question.id, option.score)"
-              [class.text-white]="isSelected(question.id, option.score)"
-              class="text-left px-4 py-3 rounded-lg border border-white/15 bg-ink-soft hover:border-white/30 transition-colors text-sm sm:text-base"
+              [class]="
+                isSelected(question.id, option.score)
+                  ? 'text-left px-4 py-3 rounded-lg border border-blood bg-blood text-white transition-colors text-sm sm:text-base'
+                  : 'text-left px-4 py-3 rounded-lg border border-white/15 bg-ink-soft hover:border-white/30 transition-colors text-sm sm:text-base'
+              "
             >
               {{ option.label }}
             </button>

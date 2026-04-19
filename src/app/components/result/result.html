@@ -1,1 +1,73 @@
-<p>result works!</p>
+@if (result(); as r) {
+  <section class="flex flex-col gap-10 py-6 sm:py-10">
+    <header class="text-center flex flex-col items-center gap-5">
+      <p class="text-xs tracking-[0.3em] uppercase text-gold">The verdict</p>
+
+      <div class="flex flex-col items-center gap-2">
+        <p class="text-sm uppercase tracking-widest opacity-60">You need</p>
+        <p class="font-display text-8xl sm:text-9xl leading-none text-blood">
+          {{ formatYears(displayYears()) }}
+        </p>
+        <p class="text-sm uppercase tracking-widest opacity-80">
+          {{ r.years === 1 || r.years === 0.5 ? 'Year' : 'Years' }} in Dagestan
+        </p>
+      </div>
+
+      @if (badgeStyle(); as b) {
+        <span
+          class="mt-3 inline-flex items-center px-5 py-2 rounded-full ring-2 text-xs sm:text-sm font-bold tracking-[0.25em] uppercase"
+          [class]="b.ring + ' ' + b.text"
+        >
+          {{ b.label }}
+        </span>
+      }
+
+      <div class="mt-4 max-w-xl">
+        <h2 class="font-display text-3xl tracking-wider">{{ r.verdict_title }}</h2>
+        <p class="mt-2 text-sm opacity-75">{{ r.verdict_sub }}</p>
+      </div>
+    </header>
+
+    @if (analysis(); as a) {
+      <div class="max-w-2xl w-full mx-auto grid grid-cols-1 gap-4">
+        @for (row of [
+          { label: 'Face',    score: a.face.score,    note: a.face.observation },
+          { label: 'Posture', score: a.posture.score, note: a.posture.observation },
+          { label: 'Vibe',    score: a.vibe.score,    note: a.vibe.observation }
+        ]; track row.label) {
+          <div class="bg-ink-soft border border-white/10 rounded-xl p-5">
+            <div class="flex items-center justify-between mb-3">
+              <span class="font-display text-xl tracking-wider">{{ row.label }}</span>
+              <span class="text-gold font-display text-2xl tracking-wider">
+                {{ row.score }}<span class="opacity-50 text-sm">/10</span>
+              </span>
+            </div>
+            <div class="h-2 rounded-full bg-white/10 overflow-hidden">
+              <div
+                class="h-full bg-linear-to-r from-blood to-gold transition-[width] duration-1000 ease-out"
+                [style.width.%]="barsVisible() ? row.score * 10 : 0"
+              ></div>
+            </div>
+            <p class="mt-3 text-sm opacity-75">{{ row.note }}</p>
+          </div>
+        }
+      </div>
+
+      <p class="text-center text-sm italic opacity-60 max-w-xl mx-auto">
+        "{{ a.image_summary }}"
+      </p>
+    }
+
+    <div class="flex justify-center">
+      <button
+        type="button"
+        (click)="restart()"
+        class="px-6 py-3 rounded-lg border border-white/20 hover:border-white/40 transition-colors text-sm font-bold tracking-widest uppercase"
+      >
+        Take it again
+      </button>
+    </div>
+  </section>
+} @else {
+  <p class="text-center opacity-60">Loading the mountain's verdict…</p>
+}
