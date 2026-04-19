@@ -1,4 +1,4 @@
-# send-to-dagestan — Claude Code Instructions
+# send-to-dagestan - Claude Code Instructions
 
 ## What This Project Is
 A funny viral web app that analyzes a user's photo + quiz answers using AI
@@ -17,10 +17,10 @@ It also serves as brand marketing via shareable result cards.
 send-to-dagestan/
 ├── frontend/src/app/
 │   ├── components/
-│   │   ├── upload/        # Step 1 — drag & drop photo upload
-│   │   ├── quiz/          # Step 2 — 6 questions with scored radio answers
-│   │   ├── analyzing/     # Step 3 — loading animation while APIs run
-│   │   └── result/        # Step 4 — verdict, scores, share button
+│   │   ├── upload/        # Step 1 - drag & drop photo upload
+│   │   ├── quiz/          # Step 2 - 6 questions with scored radio answers
+│   │   ├── analyzing/     # Step 3 - loading animation while APIs run
+│   │   └── result/        # Step 4 - verdict, scores, share button
 │   ├── services/
 │   │   ├── image-analysis.service.ts  # POST image to backend /analyze
 │   │   └── toughness.service.ts       # Call Claude API for final verdict

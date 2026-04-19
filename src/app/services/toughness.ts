@@ -12,7 +12,7 @@ const VERDICTS: Record<ToughnessBadge, { title: string; sub: string }[]> = {
     { title: 'The eagle has landed.', sub: 'Born ready. Just keep the bears away.' },
   ],
   'FUTURE WARRIOR': [
-    { title: 'The mountain is calling.', sub: 'Raw talent — just add winter and stew.' },
+    { title: 'The mountain is calling.', sub: 'Raw talent - just add winter and stew.' },
     { title: 'Promising bloodline detected.', sub: 'A short tour in Makhachkala and you are set.' },
   ],
   'NEEDS WORK': [
@@ -20,7 +20,7 @@ const VERDICTS: Record<ToughnessBadge, { title: string; sub: string }[]> = {
     { title: 'Moderate toughness deficiency.', sub: 'Treatable with 5 years of wrestling and lamb.' },
   ],
   'SERIOUS EMERGENCY': [
-    { title: 'Send to Dagestan. Immediately.', sub: 'There is still hope — but only at altitude.' },
+    { title: 'Send to Dagestan. Immediately.', sub: 'There is still hope - but only at altitude.' },
     { title: 'Intervention required.', sub: 'Cancel your plans. The mountain will schedule you.' },
   ],
 };

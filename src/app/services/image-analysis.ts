@@ -13,7 +13,7 @@ const FACE_OBSERVATIONS = [
 ];
 
 const POSTURE_OBSERVATIONS = [
-  'Shoulders back, chin up — respectable stance.',
+  'Shoulders back, chin up - respectable stance.',
   'Slightly slouched. Mountains will fix that.',
   'Posture of a man ready to wrestle a bear. Politely.',
   'Neutral spine, neutral vibes.',
